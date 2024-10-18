@@ -13,7 +13,7 @@ while video.isOpened():
     for x,y,w,h in eyes:
         cv2.rectangle(frame,(x,y),(x+w,y+h),(255,0,0),3)
     cv2.imshow("Eyes", frame)
-    if cv2.waitKey(25) & 0xFF == ord("q"):
+    if (cv2.waitKey(25) & 0xFF == ord("q")) | (int(cv2.getWindowProperty("Eyes",cv2.WND_PROP_VISIBLE))<1):
         break
 video.release()
 cv2.destroyAllWindows()
